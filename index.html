@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Frissr</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+        <script>
+            function getUrlByIndex(idx) {
+                return 'http://frissnet.hu/pictures/' + Math.floor(idx / 1000) + '/' + idx + '_' + idx + '.jpg';
+            }
+            function stepImage(val) {
+                location.search = loadIndex(parseInt(location.search.slice(1) || '1') + val);
+            }
+            function loadIndex(idx) {
+                document.getElementById('image').src = getUrlByIndex(idx);
+                return idx;
+            }
+        </script>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+            }
+            #wrapper {
+                align-items: center;
+                display: flex;
+                flex-direction: row;
+            }
+            button {
+                background: none;
+                border: none;
+                flex-grow: 1;
+            }
+            button:hover {
+                background: rgba(0, 80, 255, 0.1);
+            }
+        </style>
+    </head>
+    <body>
+        <button id="prev" onclick="stepImage(-1)"><i class="fa fa-chevron-left"></i></button>
+        <div id="wrapper">
+            <img id="image" src="">
+        </div>
+        <button id="next" onclick="stepImage(+1)"><i class="fa fa-chevron-right"></i></button>
+        <script>
+            loadIndex(parseInt(location.search.slice(1) || '1'));
+        </script>
+    </body>
+</html>
