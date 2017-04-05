@@ -8,11 +8,10 @@
                 return 'http://frissnet.hu/pictures/' + Math.floor(idx / 1000) + '/' + idx + '_' + idx + '.jpg';
             }
             function stepImage(val) {
-                location.search = loadIndex(parseInt(location.search.slice(1) || '1') + val);
+                location.search = '?' + (parseInt(location.search.slice(1) || '1') + val);
             }
             function loadIndex(idx) {
                 document.getElementById('image').src = getUrlByIndex(idx);
-                return idx;
             }
         </script>
         <style>
