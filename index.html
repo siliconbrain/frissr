@@ -17,6 +17,11 @@
         <style>
             body {
                 display: flex;
+                flex-direction: column;
+            }
+            main {
+                display: flex;
+                flex-grow: 1;
                 justify-content: center;
             }
             #wrapper {
@@ -32,14 +37,22 @@
             button:hover {
                 background: rgba(0, 80, 255, 0.1);
             }
+            footer {
+                text-align: center;
+            }
         </style>
     </head>
     <body>
-        <button id="prev" onclick="stepImage(-1)"><i class="fa fa-chevron-left"></i></button>
-        <div id="wrapper">
-            <img id="image" src="">
-        </div>
-        <button id="next" onclick="stepImage(+1)"><i class="fa fa-chevron-right"></i></button>
+        <main>
+            <button id="prev" onclick="stepImage(-1)"><i class="fa fa-chevron-left"></i></button>
+            <div id="wrapper">
+                <img id="image" src="">
+            </div>
+            <button id="next" onclick="stepImage(+1)"><i class="fa fa-chevron-right"></i></button>
+        </main>
+        <footer>
+            A képeket a <a href="http://frissnet.hu">Frissnet</a> szolgáltatta.
+        </footer>
         <script>
             loadIndex(parseInt(location.search.slice(1) || '1'));
             document.addEventListener('keydown', function(ev) {
