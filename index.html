@@ -16,18 +16,21 @@
         </script>
         <style>
             body {
+                box-sizing: border-box;
                 display: flex;
                 flex-direction: column;
+                margin: 0;
+                max-height: 100%;
+                padding: 8px;
             }
             main {
                 display: flex;
                 flex-grow: 1;
                 justify-content: center;
+                margin-bottom: 0.5em;
             }
-            #wrapper {
-                align-items: center;
-                display: flex;
-                flex-direction: row;
+            #image {
+                object-fit: scale-down;
             }
             button {
                 background: none;
@@ -45,9 +48,7 @@
     <body>
         <main>
             <button id="prev" onclick="stepImage(-1)"><i class="fa fa-chevron-left"></i></button>
-            <div id="wrapper">
                 <img id="image" src="">
-            </div>
             <button id="next" onclick="stepImage(+1)"><i class="fa fa-chevron-right"></i></button>
         </main>
         <footer>
